@@ -1,0 +1,46 @@
+.branding-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.branding-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.branding-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+.branding-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--gradient-start);
+}
+.branding-card p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.values-list {
+  list-style: none;
+  padding: 0;
+}
+.values-list li {
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.values-list li strong {
+  color: var(--gradient-start);
+}
+@media (max-width: 768px) {
+  .branding-container {
+    gap: 1.5rem;
+  }
+  .branding-card {
+    padding: 1.5rem;
+  }
+}

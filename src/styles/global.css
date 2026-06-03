@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth; /* ensures smooth scrolling globally */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Permanent dark mode */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --text-primary: #f0f0f0;
+  --text-secondary: #cbd5e0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --header-bg: rgba(10, 10, 10, 0.95);
+  --gradient-start: #667eea;
+  --gradient-end: #764ba2;
+  --container-padding: 2rem;
+  --section-margin: 5rem;
+  --section-padding: 2rem 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 10px;
+}
+
+/* Main content container */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem var(--container-padding) 2rem;
+  width: 100%;
+}
+
+/* Global Section Styles */
+.section {
+  margin-bottom: var(--section-margin);
+  padding: var(--section-padding);
+  scroll-margin-top: 80px; /* prevents heading from being hidden under fixed header */
+}
+.section-title {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+/* 3D Tilt and Motion Effects for Cards */
+.experience-card, .skill-tag, .cert-item, .connect-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.experience-card:hover, .skill-tag:hover, .cert-item:hover, .connect-card:hover {
+  transform: translateY(-5px) rotateX(3deg) rotateY(3deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Parallax background circles */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  animation: float 20s infinite ease-in-out;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-30px) translateX(20px); }
+  66% { transform: translateY(30px) translateX(-20px); }
+}
+
+/* 3D Background container – purely dark mode gradient */
+.three-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+.three-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 1rem;
+    --section-margin: 2.5rem;
+    --section-padding: 0.8rem 0;
+  }
+  .main-content {
+    padding-top: 7rem;
+  }
+  .section {
+    scroll-margin-top: 70px; /* slightly smaller for mobile */
+  }
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+  .section-title::after {
+    bottom: -6px;
+    height: 3px;
+  }
+  .experience-card:hover, .skill-tag:hover, .cert-item:hover, .connect-card:hover {
+    transform: translateY(-2px) rotateX(1deg) rotateY(1deg);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  :root {
+    --container-padding: 1.5rem;
+    --section-margin: 3.5rem;
+    --section-padding: 1rem 0;
+  }
+  .main-content {
+    padding-top: 8rem;
+  }
+  .section {
+    scroll-margin-top: 70px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --container-padding: 2rem;
+    --section-margin: 4rem;
+  }
+  .main-content {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .main-content {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .main-content {
+    max-width: 1600px;
+    padding: 6rem 3rem 2rem;
+  }
+  .section-title {
+    font-size: 3rem;
+  }
+}

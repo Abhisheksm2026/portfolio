@@ -1,0 +1,10 @@
+/* App container - main wrapper */
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Optional: smooth scrolling for the whole app */
+html {
+  scroll-behavior: smooth;
+}

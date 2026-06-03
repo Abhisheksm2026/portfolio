@@ -1,0 +1,43 @@
+.uiux-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.uiux-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s;
+}
+
+.uiux-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.uiux-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--gradient-start);
+}
+
+.uiux-card p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .uiux-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .uiux-card {
+    padding: 1.5rem;
+  }
+  .uiux-card h3 {
+    font-size: 1.2rem;
+  }
+}
