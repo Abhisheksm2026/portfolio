@@ -2,15 +2,14 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]          # runs on every push to the main branch
-  workflow_dispatch:          # allows manual trigger
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -19,38 +18,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
+      # Use Node.js 22 (required by some dependencies)
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'        # or your preferred version
+          node-version: '22'
           cache: 'npm'
 
+      # Use 'npm install' instead of 'npm ci' to regenerate lock file if needed
       - name: Install dependencies
-        run: npm ci                 # clean install, faster than npm install
+        run: npm install
 
       - name: Build React app
         run: npm run build
-
-      # IMPORTANT: base-href must match your GitHub Pages repository name.
-      # If your repo is https://github.com/username/repo-name, then base-href = "/repo-name/"
-      # If it's a user/organisation page (username.github.io) or you use a custom domain, set to "/".
-      - name: Adjust base URL in index.html (optional)
-        run: |
-          # This manually injects the base tag, but Create React App uses PUBLIC_URL.
-          # Alternatively, set PUBLIC_URL in the build step.
-          echo "PUBLIC_URL=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" >> $GITHUB_ENV
-      - name: Build with correct PUBLIC_URL
-        run: npm run build
         env:
+          # Optional: set PUBLIC_URL for correct asset paths on GitHub Pages
           PUBLIC_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build/              # React's output folder (default is build)
+          path: build/
 
   deploy:
     needs: build
