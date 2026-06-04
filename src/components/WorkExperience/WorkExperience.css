@@ -1,13 +1,13 @@
 /* Increase spacing between heading and first card */
 #work-experience .section-title {
-  margin-bottom: 3rem; /* increased from 2.5rem */
+  margin-bottom: 5rem; /* was 4rem, now even more breathing room */
 }
 
 .experience-list {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
-  margin-top: 1rem; /* increased from 0.5rem */
+  margin-top: 2rem; /* was 1.5rem, now larger */
 }
 
 .experience-card {
@@ -16,6 +16,8 @@
   padding: 1.5rem;
   border: 1px solid var(--card-border);
   transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  z-index: 1;
 }
 
 .experience-card:hover {
@@ -68,9 +70,9 @@
 /* Responsive adjustment for mobile */
 @media (max-width: 768px) {
   #work-experience .section-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
   }
   .experience-list {
-    margin-top: 0.8rem;
+    margin-top: 1.5rem;
   }
 }

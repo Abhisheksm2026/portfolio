@@ -49,7 +49,7 @@ const WorkExperience = () => {
 
   return (
     <section id="work-experience" className="section">
-      <h2 className="section-title">Work Experience</h2>
+      <h2 className="section-title">Work Experience</h2><br></br>
       <div className="experience-list">
         {experiences.map((exp, index) => (
           <div key={index} className="experience-card">

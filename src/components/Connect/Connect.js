@@ -14,6 +14,42 @@ const Connect = () => {
       url: 'https://www.linkedin.com/in/abhishek-malangaonkar-a87206109/', 
       brandClass: 'linkedin',
       icon: <img src="/images/linkedin-icon.jpg" alt="LinkedIn" className="connect-image-icon" />
+    },
+    { 
+      name: 'Instagram', 
+      url: 'https://www.instagram.com/', 
+      brandClass: 'instagram',
+      icon: <img src="/images/instagram-icon.jpg" alt="Instagram" className="connect-image-icon" />
+    },
+    { 
+      name: 'Facebook', 
+      url: 'https://facebook.com/AbhiShek%20Malangaonkar', 
+      brandClass: 'facebook',
+      icon: <img src="/images/facebook-icon.jpg" alt="Facebook" className="connect-image-icon" />
+    },
+    { 
+      name: 'Twitter', 
+      url: 'https://x.com/AbhishekMa43791', 
+      brandClass: 'twitter',
+      icon: <img src="/images/twitter-icon.jpg" alt="Twitter" className="connect-image-icon" />
+    },
+    { 
+      name: 'Dribbble', 
+      url: 'https://dribbble.com/Abhisheksm8888', 
+      brandClass: 'dribbble',
+      icon: <img src="/images/dribbble-icon.jpg" alt="Dribbble" className="connect-image-icon" />
+    },
+    { 
+      name: 'Medium', 
+      url: 'https://medium.com/@amalangaonkar75', 
+      brandClass: 'medium',
+      icon: <img src="/images/medium-icon.jpg" alt="Medium" className="connect-image-icon" />
+    },
+    { 
+      name: 'GitHub', 
+      url: 'https://github.com/AbhishekSMalangaonkar', 
+      brandClass: 'github',
+      icon: <img src="/images/github-icon.jpg" alt="GitHub" className="connect-image-icon" />
     }
   ];
 
