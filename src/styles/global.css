@@ -9,7 +9,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* ensures smooth scrolling globally */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,6 +33,7 @@ body {
   --container-padding: 2rem;
   --section-margin: 5rem;
   --section-padding: 2rem 0;
+  --scroll-margin: 80px;
 }
 
 /* Scrollbar */
@@ -59,10 +60,10 @@ body {
 .section {
   margin-bottom: var(--section-margin);
   padding: var(--section-padding);
-  scroll-margin-top: 80px; /* prevents heading from being hidden under fixed header */
+  scroll-margin-top: var(--scroll-margin);
 }
 .section-title {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 2rem;
   position: relative;
@@ -112,7 +113,7 @@ body {
   66% { transform: translateY(30px) translateX(-20px); }
 }
 
-/* 3D Background container – purely dark mode gradient */
+/* 3D Background container – dark gradient overlay */
 .three-bg {
   position: fixed;
   top: 0;
@@ -133,21 +134,57 @@ body {
   pointer-events: none;
 }
 
-/* Responsive breakpoints */
+/* ===== PREVENT HORIZONTAL SCROLLING – FIX for all screen sizes ===== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure all grids and containers stay inside viewport */
+.main-content,
+.section,
+.cert-grid,
+.articles-grid,
+.experience-list,
+.skills-container,
+.connect-links,
+.contact-info {
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+/* Force images to never exceed container width */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive breakpoints – improved for all screen sizes */
+
+/* Extra small devices (≤480px) */
 @media (max-width: 480px) {
   :root {
     --container-padding: 1rem;
-    --section-margin: 2.5rem;
+    --section-margin: 2rem;
     --section-padding: 0.8rem 0;
+    --scroll-margin: 65px;
   }
   .main-content {
-    padding-top: 7rem;
-  }
-  .section {
-    scroll-margin-top: 70px; /* slightly smaller for mobile */
+    padding-top: 6.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
   .section-title {
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    word-break: break-word;
   }
   .section-title::after {
     bottom: -6px;
@@ -156,41 +193,85 @@ body {
   .experience-card:hover, .skill-tag:hover, .cert-item:hover, .connect-card:hover {
     transform: translateY(-2px) rotateX(1deg) rotateY(1deg);
   }
+  .cert-grid, .articles-grid {
+    gap: 1rem;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+    word-break: break-word;
+  }
+  .designation {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+  .hero-description,
+  .about-content,
+  .experience-card p,
+  .cert-text {
+    word-break: break-word;
+  }
 }
 
+/* Small devices (481px – 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   :root {
     --container-padding: 1.5rem;
-    --section-margin: 3.5rem;
+    --section-margin: 3rem;
     --section-padding: 1rem 0;
+    --scroll-margin: 70px;
   }
   .main-content {
-    padding-top: 8rem;
+    padding-top: 7rem;
   }
-  .section {
-    scroll-margin-top: 70px;
+  .section-title {
+    font-size: 1.9rem;
   }
 }
 
+/* Tablets (769px – 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   :root {
     --container-padding: 2rem;
     --section-margin: 4rem;
+    --scroll-margin: 75px;
   }
   .main-content {
     max-width: 1100px;
   }
+  .section-title {
+    font-size: 2.2rem;
+  }
 }
 
-@media (min-width: 1025px) and (max-width: 1440px) {
+/* Small desktops (1025px – 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .main-content {
+    max-width: 1140px;
+  }
+}
+
+/* Medium desktops (1281px – 1440px) */
+@media (min-width: 1281px) and (max-width: 1440px) {
   .main-content {
     max-width: 1200px;
   }
 }
 
-@media (min-width: 1441px) {
+/* Large desktops (1441px – 1920px) */
+@media (min-width: 1441px) and (max-width: 1920px) {
   .main-content {
-    max-width: 1600px;
+    max-width: 1400px;
+    padding: 6rem 2.5rem 2rem;
+  }
+  .section-title {
+    font-size: 2.7rem;
+  }
+}
+
+/* Ultra-wide (≥1921px) */
+@media (min-width: 1921px) {
+  .main-content {
+    max-width: 1800px;
     padding: 6rem 3rem 2rem;
   }
   .section-title {

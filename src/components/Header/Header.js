@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 
 const Header = ({ activeSection, scrollToSection }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems = [
     'home',
     'skills',
@@ -17,16 +19,34 @@ const Header = ({ activeSection, scrollToSection }) => {
     return name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   };
 
+  const handleLinkClick = (section) => {
+    scrollToSection(section);
+    setMenuOpen(false);
+  };
+
   return (
     <header className="header">
       <div className="nav-container">
         <img src="/images/logo.png" alt="Logo" className="logo-image" />
-        <div className="nav-links">
+        
+        {/* Hamburger icon (visible only on mobile) */}
+        <button 
+          className={`hamburger ${menuOpen ? 'active' : ''}`} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Navigation links - desktop normal, mobile slides from right */}
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navItems.map(section => (
             <div
               key={section}
               className={`nav-link ${activeSection === section ? 'active' : ''}`}
-              onClick={() => scrollToSection(section)}
+              onClick={() => handleLinkClick(section)}
             >
               {formatName(section)}
             </div>

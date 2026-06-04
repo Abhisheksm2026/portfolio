@@ -1,27 +1,97 @@
 .connect-links {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin: 1rem 0;
 }
+
 .connect-card {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.8rem;
-  padding: 0.8rem 1.8rem;
+  padding: 0.9rem 2rem;          /* comfortable padding all around */
   background: var(--card-bg);
   border-radius: 60px;
   border: 1px solid var(--card-border);
-  transition: all 0.25s;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  min-width: 160px;               /* ensures buttons have enough width */
 }
+
 .connect-card:hover {
   transform: translateY(-4px);
   border-color: var(--gradient-start);
 }
-.connect-icon svg {
-  width: 22px;
-  height: 22px;
+
+/* Icon container and image sizing */
+.connect-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
 }
+
+.connect-image-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text styling */
 .connect-text {
   font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+  white-space: nowrap;           /* prevents text wrapping */
+}
+
+.connect-card:hover .connect-text {
+  color: var(--gradient-start);
+}
+
+/* Brand-specific border colors on hover */
+.connect-card.connect-behance:hover {
+  border-color: #1769FF;
+}
+.connect-card.connect-linkedin:hover {
+  border-color: #0A66C2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .connect-links {
+    gap: 1.2rem;
+  }
+  .connect-card {
+    padding: 0.7rem 1.5rem;
+    min-width: 140px;
+  }
+  .connect-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .connect-image-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .connect-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .connect-card {
+    padding: 0.6rem 1.2rem;
+    min-width: 120px;
+  }
+  .connect-text {
+    font-size: 0.85rem;
+  }
 }

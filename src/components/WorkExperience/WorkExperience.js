@@ -4,6 +4,12 @@ import './WorkExperience.css';
 const WorkExperience = () => {
   const experiences = [
     {
+      company: 'GoldenLegand Leasing and Finance Pvt Ltd (SOLUTIO Pvt Ltd)',
+      period: 'Jan 2026 - Present',
+      project: 'UI UX Designer and Frontend Developer',
+      description: `Designing Fintech mobile apps and web apps.`
+    },
+    {
       company: 'Mahindra and Mahindra (ITFMS Infotech Pvt Ltd)',
       period: 'Mar 2024 - Oct 2025',
       project: 'Mobile and Web Applications UI Design',
