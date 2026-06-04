@@ -3,10 +3,17 @@ import './Certifications.css';
 
 const Certifications = () => {
   const certifications = [
+    // Previous certifications
     'UI/UX Design Advance Global Certification',
     'Certified in Google Analytics',
     'Frontend Development',
-    'Masters ChatGPT'
+    'Masters ChatGPT',
+    // New certifications
+    'AI Fluency: Framework & Foundations (Anthropic)',
+    'Claude Code in Action',
+    'Introduction to Claude Cowork (Anthropic)',
+    'Claude Code 101',
+    'Claude 101 (Anthropic)'
   ];
 
   return (

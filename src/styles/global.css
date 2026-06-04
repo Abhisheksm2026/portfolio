@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800&display=swap');
 
 * {
   margin: 0;
@@ -13,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -134,7 +133,7 @@ body {
   pointer-events: none;
 }
 
-/* ===== PREVENT HORIZONTAL SCROLLING – FIX for all screen sizes ===== */
+/* ===== PREVENT HORIZONTAL SCROLLING ===== */
 html, body {
   overflow-x: hidden;
   width: 100%;
@@ -166,9 +165,7 @@ img {
   display: block;
 }
 
-/* Responsive breakpoints – improved for all screen sizes */
-
-/* Extra small devices (≤480px) */
+/* Responsive breakpoints */
 @media (max-width: 480px) {
   :root {
     --container-padding: 1rem;
@@ -212,7 +209,6 @@ img {
   }
 }
 
-/* Small devices (481px – 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   :root {
     --container-padding: 1.5rem;
@@ -228,7 +224,6 @@ img {
   }
 }
 
-/* Tablets (769px – 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   :root {
     --container-padding: 2rem;
@@ -243,21 +238,18 @@ img {
   }
 }
 
-/* Small desktops (1025px – 1280px) */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .main-content {
     max-width: 1140px;
   }
 }
 
-/* Medium desktops (1281px – 1440px) */
 @media (min-width: 1281px) and (max-width: 1440px) {
   .main-content {
     max-width: 1200px;
   }
 }
 
-/* Large desktops (1441px – 1920px) */
 @media (min-width: 1441px) and (max-width: 1920px) {
   .main-content {
     max-width: 1400px;
@@ -268,7 +260,6 @@ img {
   }
 }
 
-/* Ultra-wide (≥1921px) */
 @media (min-width: 1921px) {
   .main-content {
     max-width: 1800px;
